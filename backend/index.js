@@ -4,13 +4,14 @@ import cors from "cors"
 const app = express()
 
 app.use(cors({
-    origin: "http://localhost:5500"
+    origin: "https://oa-7dgb.onrender.com"
 }))
 
 app.get("/", (req, res) => {
     res.send({
         x: [1, 2, 3],
-        y: [4, 5, 6]
+        y: [4, 5, 6],
+        type: "scatter"
     }).status(200)
 })
 
