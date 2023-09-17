@@ -5,7 +5,8 @@ import https from "https"
 const app = express()
 
 app.use(cors({
-    origin: "https://127.0.0.1:5500"
+  origin: "http://localhost:3000",
+  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",  
 }))
 
 app.use(express.static('../frontend'));
@@ -15,12 +16,16 @@ app.get("/api", (req, res) => {
   // and send the response back to the frontend, incldue the user-agent header so the
   // weather api knows who is making the request
 
+  res.setHeader("Content-Type", "application/json");
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  
   https.get({
     hostname: "api.weather.gov",
     mode: "cors",
     path: "/gridpoints/MKX/37,64/forecast/hourly",
     headers: {
-      "User-Agent": "weather-app"
+      "User-Agent": "weather-app",
+      "Access-Control-Allow-Origin": "*"
 
     }
   }, weatherRes => {
