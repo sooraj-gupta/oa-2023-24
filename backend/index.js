@@ -4,9 +4,9 @@ import https from "https"
 
 const app = express()
 
-app.use(cors({
-    origin: "http://localhost:3000",
-}))
+// app.use(cors({
+//     origin: "https://oa-7dgb.onrender.com",
+// }))
 
 app.use(express.static('../frontend'));
 
