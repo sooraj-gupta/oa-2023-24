@@ -4,9 +4,9 @@ import https from "https"
 
 const app = express()
 
-// app.use(cors({
-//     origin: "../frontend/",
-// }))
+app.use(cors({
+    origin: "http://127.0.0.1:5500",
+}))
 
 app.use(express.static('../frontend'));
 
@@ -20,6 +20,7 @@ app.get("/api", (req, res) => {
     path: "/gridpoints/MKX/37,64/forecast/hourly",
     headers: {
       "User-Agent": "weather-app"
+
     }
   }, weatherRes => {
     let data = ""
