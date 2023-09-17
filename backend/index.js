@@ -4,7 +4,7 @@ import cors from "cors"
 const app = express()
 
 app.use(cors({
-    origin: "https://oa-7dgb.onrender.com"
+    origin: "http://localhost:3000"
 }))
 
 app.get("/", (req, res) => {
