@@ -26,11 +26,13 @@ h1,h2,h3,h4,h5,h6 {
   /* font-family: 'Open Sans', sans-serif; */
   font-weight: 300;
   line-height: 1.2;
+  letter-spacing: 1px;
   color: inherit;
 }
 
 #container {
   padding: 30px;
+  box-sizing: border-box;
 }
 
 #header {
@@ -42,10 +44,50 @@ h1,h2,h3,h4,h5,h6 {
 
 .graph-container
 {
-  padding: 50px;
+  padding: 20px 0px;
+  width: 100%;
 }
 
 .graph
 {
   background-color: #002;
+}
+
+.button-container
+{
+  margin: 20px 0px;
+  margin-right: 50px;
+}
+.button-container > .button
+{
+  display: block;
+  text-align: center;
+  padding: 10px;
+  border: 1px solid #eee3;
+  border-radius: 0px;
+  cursor: pointer;
+  transition: 0.2s;
+  font-size: 14px;
+  font-weight: 300;
+  letter-spacing: 2px;
+  width: 200px;
+  margin-bottom: 10px;
+  color: #eeea;
+}
+
+
+.button-container > .button:hover
+{
+  background-color: #eee1;
+}
+
+.button-container > .button.selected
+{
+  background-color: #eef3;
+  color: #eee
+}
+
+.content
+{
+  display: flex;
 }

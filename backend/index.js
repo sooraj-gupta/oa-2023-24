@@ -5,11 +5,11 @@ import https from "https"
 const app = express()
 
 app.use(cors({
-  origin: "http://localhost:3000",
+  origin: "http://127.0.0.1:5500",
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",  
 }))
 
-app.use(express.static('../frontend'));
+// app.use(express.static('../frontend'));
 
 app.get("/api", (req, res) => {
   // when the frontend requests the /api endpoint, we make a request to the weather api
@@ -22,7 +22,7 @@ app.get("/api", (req, res) => {
   https.get({
     hostname: "api.weather.gov",
     mode: "cors",
-    path: "/gridpoints/MKX/37,64/forecast/hourly",
+    path: "/gridpoints/" + req.query.grid + "/forecast/hourly",
     headers: {
       "User-Agent": "weather-app",
       "Access-Control-Allow-Origin": "*"
