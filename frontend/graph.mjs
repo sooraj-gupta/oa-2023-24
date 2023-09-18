@@ -8,24 +8,25 @@ const grids =
     "newyork": "OKX/33,34",
     "losangeles": "LOX/155,45"
 }
-    
-fetch(
-    "https://oa-7dgb.onrender.com/api?grid="+grids.madison //use "http://localhost:3000" if running sample express backend locally, or replace with your own backend endpoint url
-    // "http://localhost:3000/api"
-).then(async res => {
-    Plotly.newPlot( graphDiv, [ await res.json() ]); 
-})
 
 function apiCall(grid)
 {
     fetch(
         "https://oa-7dgb.onrender.com/api?grid="+grids[grid] //use "http://localhost:3000" if running sample express backend locally, or replace with your own backend endpoint url
     ).then(async res => {
-        Plotly.newPlot( graphDiv, [ await res.json() ]); 
+        let data = await res.json();
+        Plotly.newPlot( graphDiv, [ data ]); 
+        let avgTemp = data.y.reduce((a, b) => a + b, 0) / data.y.length;
+          
+        document.getElementById("temp").innerHTML = avgTemp.toFixed(0) + "°F";
+
     })
 }
 
+
+
 window.onload = () => {
+  apiCall("madison");
   const buttons = document.querySelectorAll(".button");
   buttons.forEach((button) => {
     button.addEventListener("click", () => {

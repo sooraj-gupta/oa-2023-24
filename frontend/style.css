@@ -30,6 +30,11 @@ h1,h2,h3,h4,h5,h6 {
   color: inherit;
 }
 
+h1
+{
+  font-size: 2.5rem;
+}
+
 #container {
   padding: 30px;
   box-sizing: border-box;
@@ -90,4 +95,45 @@ h1,h2,h3,h4,h5,h6 {
 .content
 {
   display: flex;
+}
+
+.stats-container
+{
+  width: 300px;
+  padding: 20px;
+  box-sizing: border-box;
+  font-weight: 300;
+}
+
+.stats-container {
+  width: 300px;
+  box-sizing: border-box;
+  font-weight: 300;
+  
+  
+  color: #eee; /* Text color */
+}
+
+/* Style the stats */
+.stats {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stat {
+  margin-bottom: 20px;
+  text-align: center;
+  background-color: #88a2;
+  /* box-shadow: 7px 8px 10px #fff3; */
+  padding: 25px 30px;
+}
+
+.stat-title {
+  font-size: 18px; /* Adjust the font size */
+  margin-bottom: 5px;
+}
+
+.stat-value {
+  font-size: 30px; /* Adjust the font size */
 }
