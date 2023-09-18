@@ -17,8 +17,8 @@ function apiCall(grid)
         let data = await res.json();
         Plotly.newPlot( graphDiv, [ data ]); 
         let avgTemp = data.y.reduce((a, b) => a + b, 0) / data.y.length;
-          
         document.getElementById("temp").innerHTML = avgTemp.toFixed(0) + "°F";
+        document.getElementsByClassName("loadingio-spinner-rolling-sijxdcq7t9l")[0].style.display = data.y.length > 0 ? "none" : "none";
 
     })
 }
